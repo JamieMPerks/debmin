@@ -31,8 +31,15 @@ if [ -z "$efi_partuuid" ]; then
     exit 1
 fi
 
+# Format the root partition (e.g., as ext4)
+mkfs.ext4 $root_partition
+
 #mount the partitions
 mount $root_partition /mnt
+
+# Format the EFI system partition (e.g., as vfat)
+mkfs.vfat -F32 $efi_partition
+
 mkdir -p /mnt/boot/efi
 mount $efi_partition /mnt/boot/efi
 
