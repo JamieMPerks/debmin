@@ -5,3 +5,9 @@ make sudo git gcc libx11-dev libxft-dev libxinerama-dev xserver-xorg-core xserve
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
 nix-env -iA nixpkgs.firefox
+
+
+
+https://docs.rockylinux.org/books/nvchad/nerd_fonts/ 
+
+^ For nerd fonts
