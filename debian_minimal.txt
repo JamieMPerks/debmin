@@ -1,0 +1,7 @@
+make sudo git gcc libx11-dev libxft-dev libxinerama-dev xserver-xorg-core xserver-xorg-video-intel xserver-xorg-input-evdev x11-xserver-utils x11-utils xinit wireless-tools wpasupplicant efibootmgr? 
+
+
+
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
+nix-env -iA nixpkgs.firefox
