@@ -8,6 +8,27 @@ nix-env -iA nixpkgs.firefox
 
 
 
-https://docs.rockylinux.org/books/nvchad/nerd_fonts/ 
+mkdir ~/.local/share/fonts
+unzip Terminess.zip -d ~/.local/share/fonts/
+fc-cache ~/.local/share/fonts
 
-^ For nerd fonts
+
+
+cd ~
+git clone https://gitlab.freedesktop.org/xorg/lib/libxft.git
+cd libxft
+sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man
+make
+sudo make install
+
+add to config.mk for st
+
+-X11INC = /usr/X11R6/include
+-X11LIB = /usr/X11R6/lib
++X11INC = $(HOME)/libxft/include
++X11LIB = $(HOME)/libxft/src/.libs
+-STLDFLAGS = $(LIBS) $(LDFLAGS)
++STLDFLAGS = -Xlinker -rpath=$(X11LIB) $(LIBS) $(LDFLAGS)
+
+then sudo make install? test to see if its possible without changing the config.mk
+
