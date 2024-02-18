@@ -32,3 +32,5 @@ add to config.mk for st
 
 then sudo make install? test to see if its possible without changing the config.mk
 
+the $(HOME) needs to be changed to the actual path e.g. /home/user/libxft etc
+
